@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>网红之家-APP下载 - </title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"  rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> 
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+ 
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --accent: #4895ef;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #4cc9f0;
+      --card-bg: #ffffff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+ 
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      line-height: 1.6;
+    }
+ 
+    .container {
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+    }
+ 
+    .app-container {
+      background: var(--card-bg);
+      border-radius: 20px;
+      box-shadow: 0 15px 50px var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+ 
+    .hero-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+    }
+ 
+    .app-icon {
+      width: 100px;
+      height: 100px;
+      background: white;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+ 
+    .app-icon i {
+      font-size: 50px;
+      color: var(--primary);
+    }
+ 
+    .app-name {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+ 
+    .app-tagline {
+      font-size: 16px;
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto 20px;
+      opacity: 0.9;
+    }
+ 
+    .download-section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+ 
+    .section-title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+    }
+ 
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+ 
+    .download-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+ 
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 30px;
+      border-radius: 15px;
+      font-weight: 500;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      min-width: 220px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+ 
+    .btn i {
+      margin-right: 12px;
+      font-size: 24px;
+    }
+ 
+    .btn-android {
+      background: #3DDC84;
+      color: #0d3c1d;
+    }
+ 
+    .btn-ios {
+      background: #000;
+      color: #fff;
+    }
+ 
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+ 
+    .btn:active {
+      transform: translateY(-2px);
+    }
+ 
+    .tutorial-section {
+      padding: 40px 30px;
+      background: #f8f9ff;
+    }
+ 
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+ 
+    .step-card {
+      flex: 1;
+      min-width: 250px;
+      background: white;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+ 
+    .step-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+ 
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+ 
+    .step-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+ 
+    .step-desc {
+      font-size: 15px;
+      color: #666;
+    }
+ 
+    .footer {
+      padding: 20px;
+      text-align: center;
+      background: var(--dark);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+    }
+ 
+    .device-message {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e3f2fd;
+      border-radius: 10px;
+      font-size: 16px;
+      display: inline-block;
+    }
+ 
+    .device-message i {
+      margin-right: 10px;
+      color: var(--accent);
+    }
+ 
+    .qr-section {
+      margin-top: 30px;
+    }
+ 
+    .qr-container {
+      display: inline-block;
+      background: white;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+ 
+    .qr-code {
+      width: 150px;
+      height: 150px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+ 
+    .qr-code i {
+      font-size: 60px;
+      color: #333;
+    }
+ 
+    .qr-text {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+ 
+    @media (max-width: 768px) {
+      .app-container {
+        border-radius: 15px;
+      }
+      
+      .hero-section {
+        padding: 30px 20px;
+      }
+      
+      .app-icon {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .app-icon i {
+        font-size: 40px;
+      }
+      
+      .app-name {
+        font-size: 24px;
+      }
+      
+      .btn {
+        min-width: 100%;
+      }
+      
+      .tutorial-section {
+        padding: 30px 20px;
+      }
+    }
+ 
+    @media (max-width: 480px) {
+      .steps {
+        flex-direction: column;
+      }
+      
+      .step-card {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="app-container">
+      <!-- 顶部展示区 -->
+      <div class="hero-section">
+        <div class="app-icon">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h1 class="app-name">网红之家-短视频黑科技APP</h1>
+        <p class="app-tagline">功能强大的全能应用，提升您的工作效率与生活品质</p>
+      </div>
+      
+      <!-- 下载区域 -->
+      <div class="download-section">
+        <h2 class="section-title">下载应用</h2>
+        <div id="deviceMessage" class="device-message">
+          <i class="fas fa-info-circle"></i>
+          <span>正在检测您的设备...</span>
+        </div>
+        
+        <div class="download-buttons">
+          <a href="wanghong.apk" id="androidBtn" class="btn btn-android" style="display: none;">
+            <i class="fab fa-android"></i> Android 下载
+          </a>
+          <a href="#" id="iosBtn" class="btn btn-ios" style="display: none;">
+            <i class="fab fa-apple"></i> iOS 下载 
+          </a>
+        </div>
+        
+
+      
+      <!-- 教程区域 -->
+      <div class="tutorial-section">
+        <h2 class="section-title">使用教程</h2>
+        
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3 class="step-title">Android下载并安装教程</h3>
+            <p class="step-desc">Android用户：允许"未知来源"安装，鸿蒙系统安装下载安装包后开飞行模式离线安装。</p>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3 class="step-title">IOS下载并安装教程</h3>
+            <p class="step-desc">请仔细看步骤，IOS用户：方法1：复制本网址在Safari浏览器打开（苹果自带浏览器）然后点击“下载配置描述文件-然后在设置中找到已下载描述文件或者点击安装（方法2：下载后-设置-通用-设备管理里面找到我们的安装包，安装后就会出现在桌面了</p>
+          </div>
+          
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3 class="step-title">开始使用</h3>
+            <p class="step-desc">完成初始设置，探索应用功能，享受高效便捷的使用体验</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 底部信息 -->
+      <div class="footer">
+        <p>© 2025 网红之家 版权所有 | 隐私政策 | 使用条款</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // 设备检测函数
+    function detectDevice() {
+      const userAgent = navigator.userAgent  || navigator.vendor  || window.opera; 
+      const deviceMessage = document.getElementById('deviceMessage'); 
+      const androidBtn = document.getElementById('androidBtn'); 
+      const iosBtn = document.getElementById('iosBtn'); 
+      
+      // 检测Android设备 
+      if (/android/i.test(userAgent))  {
+        deviceMessage.innerHTML  = '<i class="fas fa-mobile-android"></i> 检测到Android设备，为您显示下载按钮';
+        androidBtn.style.display  = 'flex';
+        androidBtn.href  = 'wanghong.apk'; 
+      } 
+      // 检测iOS设备
+      else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        deviceMessage.innerHTML  = '<i class="fab fa-apple"></i> 检测到iOS设备，为您显示下载按钮';
+        iosBtn.style.display  = 'flex';
+        iosBtn.href  = 'whios.mobileconfig'; 
+      } 
+      // 其他设备
+      else {
+        deviceMessage.innerHTML  = '<i class="fas fa-desktop"></i> 检测到其他设备，请选择下载方式';
+        androidBtn.style.display  = 'flex';
+        iosBtn.style.display  = 'flex';
+        androidBtn.href  = 'wanghong.apk'; 
+        iosBtn.href  = 'whios.mobileconfig'; 
+      }
+    }
+    
+    // 页面加载完成后执行设备检测
+    document.addEventListener('DOMContentLoaded',  detectDevice);
+  </script>
+</body>
+</html>
